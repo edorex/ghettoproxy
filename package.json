@@ -1,0 +1,18 @@
+{
+  "name": "ghettoproxy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Ramon Wenger",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "jade": "^1.11.0",
+    "sqlite3": "^3.1.1"
+  }
+}

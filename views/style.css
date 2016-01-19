@@ -1,0 +1,36 @@
+body {
+  background: #18222E;
+  color: white;
+}
+
+.container {
+  text-align: center;
+}
+
+h1.header {
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.lead {
+  margin-bottom: 0;
+}
+
+.currentIP {
+  font-size: 4em;
+  margin-top: 0;
+}
+
+.setNewURL {
+  margin-top: 4em;
+}
+.setNewURL h1 {
+  font-size: 2em;
+}
+.setNewURL form {
+  max-width: 24em;
+  margin: 0 auto;
+}
+.setNewURL form input, .setNewURL form button {
+  width: 100%;
+}

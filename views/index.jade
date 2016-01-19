@@ -1,0 +1,26 @@
+
+html(lang="en")
+head
+	title Config - Ghettoproxy	
+	link(rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css")
+	style
+		include style.css
+body
+	div.container
+		h1.header edorex GhettoProxy
+		p.lead I'm currently pointing to
+		p.currentIP #{url}:#{port}
+		p.setAgo This URL was set some time ago. (Not yet implemented)
+		div.setNewURL
+			h1 Set me to a new URL
+			form(method="POST")
+				div.form-group
+					input(name="url" value=url class="form-control" placeholder="New IP")				
+
+				div.form-group
+					input(name="port" value=port class="form-control" placeholder="New Port")				
+
+				button(type="submit" class="btn btn-default") Point to this new URL
+
+	script(src='https://code.jquery.com/jquery-2.2.0.min.js')  
+	script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')  
