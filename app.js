@@ -33,7 +33,13 @@ app.set('views', __dirname + '/views');
 
 app.get('/', function(request, response){
 	getAddress(function(address){
-		response.redirect(address.url + ':' + address.port);
+		var redirect =  address.url;
+		// if(address.port){
+		// 	redirect =  address.url + ':' + address.port
+		// }else{
+		// 	redirect =  address.url;
+		// }
+		response.redirect(redirect);
 	});
 	//response.redirect('http://192.168.25.27:8005');
 })
@@ -44,11 +50,11 @@ app.get('/', function(request, response){
 })
 .post('/config', function(request, response){
 	var url = request.body.url;
-	var port = request.body.port;	
-	if(url >'' && port > ''){
+	// var port = request.body.port;
+	if(url >''){
 		console.log(url, port);
 		db.serialize(function(){
-			db.exec("DELETE FROM Address; INSERT INTO Address (url, port) VALUES ('" + url + "', '" + port + "');", function(err){
+			db.exec("DELETE FROM Address; INSERT INTO Address (url) VALUES ('" + url + "');", function(err){
 				if(err){
 					console.log(err);
 				}
@@ -68,7 +74,7 @@ app.get('/', function(request, response){
 
 function getAddress(callback){
 	db.serialize(function(){
-		db.get('SELECT url, port from Address', function(err, address){
+		db.get('SELECT url from Address', function(err, address){
 			if(err){
 				return;
 			}
