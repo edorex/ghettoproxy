@@ -52,7 +52,6 @@ app.get('/', function(request, response){
 	var url = request.body.url;
 	// var port = request.body.port;
 	if(url >''){
-		console.log(url, port);
 		db.serialize(function(){
 			db.exec("DELETE FROM Address; INSERT INTO Address (url) VALUES ('" + url + "');", function(err){
 				if(err){
