@@ -14,9 +14,9 @@ var db = new sqlite.Database(file);
 
 db.serialize(function(){
 	if(!exists){
-		db.run("CREATE TABLE Address (url TEXT, port INTEGER)");
+		db.run("CREATE TABLE Address (url TEXT)");
 
-		var statement = db.prepare("INSERT into Address VALUES ('', '')");
+		var statement = db.prepare("INSERT into Address VALUES ('')");
 		statement.run();
 		statement.finalize();
 	}
