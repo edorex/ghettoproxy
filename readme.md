@@ -15,6 +15,8 @@ With ghettoproxy you can just favorite ghettoproxy's URL on the mobile
 ## Installation 
 For ghettoproxy to run, you need to have a current installation of NodeJS.  (See the [official page](https://nodejs.org/en/download/) for instructions)
 
+Once NodeJS is installed, run the following commands:
+
  ``` bash
  git clone https://github.com/edorex/ghettoproxy
  cd ghettoproxy
