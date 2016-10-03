@@ -32,8 +32,8 @@ Point your browser to http://localhost:8081/config to configure where the proxy 
 
 Once an URL has been set, http://localhost:8081/ will point to that URL.   
  
- ## Config
+## Config
  
- If you want to change the port ghettoproxy runs on, you can change 
- it in config.json
+If you want to change the port ghettoproxy runs on, you can change 
+it in config.json
  
