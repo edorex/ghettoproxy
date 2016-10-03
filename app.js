@@ -3,12 +3,15 @@
 var express = require('express'),
 	fs = require('fs'),
 	sqlite =  require('sqlite3').verbose(),
-	bodyParser = require('body-parser');	
+	bodyParser = require('body-parser');
+
+var config = require('./config.json');
 
 var app = express();
 	
 var file = 'address.db';
 var exists = fs.existsSync(file);
+
 
 var db = new sqlite.Database(file);
 
@@ -34,17 +37,11 @@ app.set('views', __dirname + '/views');
 app.get('/', function(request, response){
 	getAddress(function(address){
 		var redirect =  address.url;
-		// if(address.port){
-		// 	redirect =  address.url + ':' + address.port
-		// }else{
-		// 	redirect =  address.url;
-		// }
 		response.redirect(redirect);
 	});
-	//response.redirect('http://192.168.25.27:8005');
 })
 .get('/config',function(request, response){
-	getAddress(function(address){	
+	getAddress(function(address){
 		response.render('index.jade', address);
 	});
 })
@@ -69,7 +66,7 @@ app.get('/', function(request, response){
 		});
 	}
 })
-.listen(8081);
+.listen(config.port);
 
 function getAddress(callback){
 	db.serialize(function(){
@@ -82,4 +79,4 @@ function getAddress(callback){
 	});
 }
 
-console.log('Server running at http://127.0.0.1:8081');
+console.log('Server running at http://127.0.0.1:'+config.port);

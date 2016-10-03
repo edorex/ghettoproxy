@@ -9,13 +9,17 @@ body
 	div.container
 		h1.header edorex GhettoProxy
 		p.lead I'm currently pointing to
-		p.currentURL #{url}
+		p.currentURL
+			if url
+				#{url}
+			else
+				span URL not set, please enter one below
 		//p.setAgo This URL was set some time ago. (Not yet implemented)
 		div.setNewURL
 			h1 Set me to a new URL
 			form(method="POST")
 				div.form-group
-					input(name="url" value=url class="form-control" placeholder="New IP")
+					input(name="url" value=url class="form-control" placeholder="New URL")
 
 				button(type="submit" class="btn btn-default") Point to this new URL
 
